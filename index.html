@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proxima Solution — AI Video Ads for TikTok, Instagram, Facebook & YouTube</title>
+<meta name="description" content="Proxima Solution creates high-quality AI-powered video ads, product demos and commercial promo videos that capture attention, increase engagement and drive sales across TikTok, Instagram, Facebook and YouTube.">
+<meta name="keywords" content="AI video ads, AI product ads, commercial video ads, product demonstration video, social media video ads, TikTok ads, Instagram ads, brand awareness video">
+<meta property="og:title" content="Proxima Solution — Boost Your Brand With AI-Driven Video Ads">
+<meta property="og:description" content="High-quality AI-powered video ads that capture attention, increase engagement, and drive more sales across social media.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#07090d">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%2307090d%22/><path d=%22M30 25 L75 50 L30 75 Z%22 fill=%22%23e3b341%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=Roboto+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#07090d;
+    --bg-2:#0a0d13;
+    --surface:#10141c;
+    --surface-2:#151b26;
+    --line:#212838;
+    --line-soft:#1a212e;
+    --text:#eef1f6;
+    --muted:#8b93a8;
+    --gold:#e3b341;
+    --gold-deep:#b8860b;
+    --gold-soft:#f3d27b;
+    --blue:#3357ff;
+    --blue-soft:#7c93ff;
+    --r-lg:20px;
+    --r-md:14px;
+    --r-sm:10px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:'Manrope', sans-serif;
+    line-height:1.6; overflow-x:hidden; -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Archivo', sans-serif; line-height:1.08; letter-spacing:-0.015em;}
+  .mono{font-family:'Roboto Mono', monospace;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1200px; margin:0 auto; padding:0 24px;}
+  ::selection{background:var(--gold); color:#07090d;}
+  button{font-family:inherit;}
+
+  body::before{
+    content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(900px 600px at 100% 0%, rgba(51,87,255,0.14), transparent 55%),
+      radial-gradient(700px 500px at 0% 100%, rgba(227,179,65,0.08), transparent 55%);
+  }
+  body::after{
+    content:""; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:0.5;
+    background-image:linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+    background-size:64px 64px;
+  }
+
+  /* ===== TOP TICKER ===== */
+  .ticker-bar{
+    background:var(--bg-2); border-bottom:1px solid var(--line-soft);
+    overflow:hidden; white-space:nowrap; position:relative; z-index:50;
+  }
+  .ticker-track{display:inline-flex; gap:48px; padding:9px 0; animation:scrollTicker 26s linear infinite;}
+  .ticker-track span{font-family:'Roboto Mono'; font-size:11.5px; letter-spacing:0.08em; color:var(--muted); text-transform:uppercase; display:inline-flex; align-items:center; gap:10px;}
+  .ticker-track span b{color:var(--gold-soft);}
+  .ticker-track .sep{color:var(--line);}
+  @keyframes scrollTicker{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+
+  /* ===== NAV ===== */
+  header{position:sticky; top:0; z-index:200; background:rgba(7,9,13,0.78); backdrop-filter:blur(16px); border-bottom:1px solid var(--line-soft);}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:15px 24px; max-width:1200px; margin:0 auto;}
+  .brand{display:flex; align-items:center; gap:11px; font-family:'Archivo'; font-weight:800; font-size:17.5px; cursor:pointer;}
+  .brand .mark{
+    width:36px; height:36px; border-radius:10px; flex-shrink:0;
+    background:conic-gradient(from 220deg, var(--gold), var(--blue), var(--gold));
+    display:flex; align-items:center; justify-content:center; position:relative;
+  }
+  .brand .mark::after{content:""; position:absolute; inset:2px; border-radius:8px; background:var(--bg); display:flex;}
+  .brand .mark span{position:relative; z-index:1; font-size:13px; color:var(--gold-soft); font-weight:800;}
+  .brand .sub{display:block; font-family:'Roboto Mono'; font-weight:500; font-size:9.5px; letter-spacing:0.18em; color:var(--blue-soft); text-transform:uppercase; margin-top:2px;}
+  nav.links{display:flex; gap:6px; align-items:center; background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:5px;}
+  nav.links a{font-size:13.5px; color:var(--muted); font-weight:600; cursor:pointer; transition:.2s; padding:9px 16px; border-radius:999px;}
+  nav.links a.active{color:#07090d; background:linear-gradient(120deg, var(--gold-soft), var(--gold));}
+  nav.links a:hover:not(.active){color:var(--text);}
+  .nav-cta{display:inline-flex; align-items:center; gap:8px; background:var(--text); color:#07090d; font-weight:700; font-size:13.5px; padding:11px 19px; border-radius:999px; cursor:pointer; transition:.2s; white-space:nowrap;}
+  .nav-cta:hover{background:var(--gold-soft); transform:translateY(-2px);}
+  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px;}
+  .burger span{width:23px; height:2px; background:var(--text); border-radius:2px;}
+
+  .page{display:none; position:relative; z-index:1; animation:fadeIn .45s ease;}
+  .page.active{display:block;}
+  @keyframes fadeIn{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);}}
+
+  .tc{font-family:'Roboto Mono'; font-size:12px; letter-spacing:0.12em; color:var(--gold-soft); text-transform:uppercase; display:inline-flex; align-items:center; gap:9px; margin-bottom:20px;}
+  .tc::before{content:""; width:7px; height:7px; border-radius:1px; background:var(--blue-soft); transform:rotate(45deg); flex-shrink:0;}
+
+  /* ===== HERO — bento layout ===== */
+  .hero-bento{
+    max-width:1200px; margin:0 auto; padding:64px 24px 0;
+    display:grid; grid-template-columns:1.4fr 1fr; grid-template-rows:auto auto; gap:18px;
+  }
+  .hero-main{grid-row:1/3;}
+  .hero-main h1{font-size:clamp(36px,5vw,64px); font-weight:900; margin-bottom:24px;}
+  .hero-main h1 .ac{background:linear-gradient(95deg, var(--gold-soft), var(--gold), var(--blue-soft)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .hero-main p.lead{font-size:18px; color:var(--muted); max-width:520px; margin-bottom:32px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:46px;}
+  .btn{display:inline-flex; align-items:center; gap:9px; font-weight:700; font-size:14.5px; padding:15px 26px; border-radius:11px; cursor:pointer; transition:.2s; border:none;}
+  .btn-primary{background:linear-gradient(120deg, var(--gold-soft), var(--gold)); color:#07090d; box-shadow:0 12px 28px rgba(227,179,65,0.18);}
+  .btn-primary:hover{transform:translateY(-3px); box-shadow:0 18px 36px rgba(227,179,65,0.3);}
+  .btn-outline{background:rgba(255,255,255,0.02); color:var(--text); border:1px solid var(--line);}
+  .btn-outline:hover{border-color:var(--blue-soft); background:rgba(51,87,255,0.07);}
+
+  .stat-strip{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--r-md); overflow:hidden;}
+  .stat-strip div{background:var(--surface); padding:18px 16px;}
+  .stat-strip b{display:block; font-family:'Archivo'; font-size:24px; font-weight:800; color:var(--gold-soft);}
+  .stat-strip span{font-size:12px; color:var(--muted);}
+
+  /* hero side panels — timecode video panel + platform panel */
+  .panel{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); position:relative; overflow:hidden;}
+  .tc-panel{aspect-ratio:1/1.05; display:flex; flex-direction:column; justify-content:space-between; padding:20px;}
+  .tc-panel .tc-top{display:flex; justify-content:space-between; align-items:center; font-family:'Roboto Mono'; font-size:10.5px; color:var(--muted);}
+  .tc-panel .reddot{width:7px; height:7px; border-radius:50%; background:#ff5d5d; box-shadow:0 0 8px #ff5d5d; animation:blink 1.6s infinite; display:inline-block; margin-right:6px;}
+  @keyframes blink{0%,100%{opacity:1;} 50%{opacity:0.25;}}
+  .tc-center{flex:1; display:flex; align-items:center; justify-content:center; position:relative;}
+  .tc-rings{position:relative; width:120px; height:120px; display:flex; align-items:center; justify-content:center;}
+  .tc-rings .ring{position:absolute; border-radius:50%; border:1px solid rgba(227,179,65,0.25);}
+  .tc-rings .r1{inset:0;}
+  .tc-rings .r2{inset:18px; border-color:rgba(124,147,255,0.3); animation:spin 12s linear infinite;}
+  .tc-rings .r3{inset:36px; border-color:rgba(227,179,65,0.4);}
+  @keyframes spin{from{transform:rotate(0);} to{transform:rotate(360deg);}}
+  .tc-rings .play{width:0; height:0; border-style:solid; border-width:13px 0 13px 21px; border-color:transparent transparent transparent var(--gold-soft); margin-left:6px;}
+  .tc-readout{font-family:'Roboto Mono'; font-size:28px; font-weight:600; text-align:center; letter-spacing:0.04em; color:var(--text); margin-top:14px;}
+  .tc-waveform{display:flex; align-items:flex-end; gap:2px; height:34px; margin-top:14px;}
+  .tc-waveform span{flex:1; background:linear-gradient(180deg, var(--gold-soft), var(--blue)); border-radius:2px; animation:wv 1.3s ease-in-out infinite;}
+  @keyframes wv{0%,100%{transform:scaleY(0.25);} 50%{transform:scaleY(1);}}
+  .tc-bottom{display:flex; gap:8px; flex-wrap:wrap;}
+  .pchip{font-size:10.5px; font-weight:700; padding:5px 10px; border-radius:999px; background:rgba(255,255,255,0.05); border:1px solid var(--line);}
+
+  .platform-panel{padding:22px; display:flex; flex-direction:column; gap:14px;}
+  .platform-panel h4{font-size:13px; text-transform:uppercase; letter-spacing:0.08em; color:var(--blue-soft); font-family:'Roboto Mono'; font-weight:600;}
+  .plat-row{display:flex; align-items:center; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--line-soft); font-size:14px; font-weight:700;}
+  .plat-row:last-child{border-bottom:none;}
+  .plat-row span.bar{width:60px; height:5px; border-radius:3px; background:var(--line-soft); position:relative; overflow:hidden;}
+  .plat-row span.bar i{position:absolute; left:0; top:0; bottom:0; border-radius:3px; background:linear-gradient(90deg,var(--gold),var(--blue));}
+
+  /* ===== generic section ===== */
+  section{padding:104px 24px; position:relative; z-index:1;}
+  section.tight{padding:80px 24px;}
+  .section-head{max-width:680px; margin-bottom:52px;}
+  .section-head.center{margin-left:auto; margin-right:auto; text-align:center;}
+  .section-head h2{font-size:clamp(28px,3.6vw,44px); font-weight:800; margin-bottom:16px;}
+  .section-head p{color:var(--muted); font-size:16.5px;}
+  .alt{background:linear-gradient(180deg, transparent, rgba(255,255,255,0.015) 14%, rgba(255,255,255,0.015) 86%, transparent);}
+
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:22px;}
+  .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-md); padding:30px 26px; transition:.25s; position:relative;}
+  .card:hover{transform:translateY(-5px); border-color:rgba(227,179,65,0.35); box-shadow:0 22px 44px rgba(0,0,0,0.35);}
+  .card .tag{font-family:'Roboto Mono'; font-size:10.5px; color:var(--blue-soft); letter-spacing:0.08em; margin-bottom:14px; display:block;}
+  .card h3{font-size:18px; margin-bottom:10px; font-weight:700;}
+  .card p{color:var(--muted); font-size:14.5px;}
+
+  /* split / value prop */
+  .split{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
+  .check-list{list-style:none; margin-top:24px;}
+  .check-list li{display:flex; gap:12px; margin-bottom:15px; font-size:15px; color:#d6dae5;}
+  .check-list li .tick{width:21px; height:21px; border-radius:5px; flex-shrink:0; margin-top:1px; background:linear-gradient(120deg,var(--gold),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:11px; color:#07090d; font-weight:800;}
+
+  .timeline-cards{display:flex; flex-direction:column; gap:0;}
+  .tcard{display:grid; grid-template-columns:64px 1fr; gap:18px; padding:20px 0; border-top:1px solid var(--line-soft);}
+  .tcard:first-child{border-top:none;}
+  .tcard .tnum{font-family:'Roboto Mono'; font-size:13px; color:var(--gold-soft); padding-top:2px;}
+  .tcard h4{font-size:16px; margin-bottom:6px;}
+  .tcard p{font-size:13.5px; color:var(--muted);}
+
+  /* process */
+  .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--r-md); overflow:hidden;}
+  .step{background:var(--surface); padding:30px 24px;}
+  .step .num{font-family:'Roboto Mono'; font-size:22px; font-weight:600; color:var(--blue-soft); opacity:0.7;}
+  .step h4{font-size:16.5px; margin:14px 0 8px; font-weight:700;}
+  .step p{color:var(--muted); font-size:13.5px;}
+
+  /* portfolio */
+  .portfolio-filter{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:36px;}
+  .filter-chip{padding:9px 18px; border-radius:999px; font-size:13px; font-weight:700; cursor:pointer; border:1px solid var(--line); color:var(--muted); transition:.2s;}
+  .filter-chip.active, .filter-chip:hover{border-color:var(--gold); color:var(--gold-soft); background:rgba(227,179,65,0.06);}
+  .port-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .port-item{border-radius:var(--r-md); overflow:hidden; position:relative; aspect-ratio:4/3; background:var(--surface); border:1px solid var(--line); cursor:pointer;}
+  .port-item .pi-grid{position:absolute; inset:0; background-image:linear-gradient(rgba(227,179,65,0.05) 1px,transparent 1px), linear-gradient(90deg,rgba(51,87,255,0.05) 1px,transparent 1px); background-size:20px 20px;}
+  .port-item .pi-play{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:54px; height:54px; border-radius:50%; background:rgba(7,9,13,0.55); border:1px solid rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; transition:.2s;}
+  .port-item:hover .pi-play{transform:translate(-50%,-50%) scale(1.12); background:rgba(227,179,65,0.18);}
+  .port-item .pi-play .tri{width:0;height:0;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent var(--gold-soft); margin-left:3px;}
+  .pi-tag{position:absolute; top:14px; left:14px; font-family:'Roboto Mono'; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; background:rgba(0,0,0,0.5); padding:5px 10px; border-radius:5px;}
+  .pi-tc{position:absolute; top:14px; right:14px; font-family:'Roboto Mono'; font-size:10px; color:var(--gold-soft); background:rgba(0,0,0,0.5); padding:5px 9px; border-radius:5px;}
+  .pi-foot{position:absolute; bottom:0; left:0; right:0; padding:16px; background:linear-gradient(0deg, rgba(7,9,13,0.92), transparent);}
+  .pi-foot b{font-size:14.5px; display:block;}
+  .pi-foot span{font-size:12px; color:var(--muted);}
+
+  /* pricing */
+  .pricing-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; align-items:stretch;}
+  .price-card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:34px 28px; display:flex; flex-direction:column; position:relative;}
+  .price-card.feat{border-color:var(--gold); box-shadow:0 0 0 1px rgba(227,179,65,0.3), 0 30px 60px rgba(227,179,65,0.07); transform:translateY(-10px);}
+  .price-badge{position:absolute; top:-13px; left:50%; transform:translateX(-50%); background:linear-gradient(120deg,var(--gold-soft),var(--gold)); color:#07090d; font-size:11px; font-weight:800; padding:6px 16px; border-radius:999px;}
+  .price-card h3{font-size:19px; margin-bottom:6px;}
+  .price-card .desc{color:var(--muted); font-size:13.5px; margin-bottom:20px;}
+  .price-card .amount{font-family:'Archivo'; font-size:38px; font-weight:800; margin-bottom:4px;}
+  .price-card .amount span{font-size:13.5px; color:var(--muted); font-weight:500;}
+  .price-card ul{list-style:none; margin:22px 0; flex-grow:1;}
+  .price-card ul li{display:flex; gap:10px; font-size:13.5px; color:#cfd4e0; margin-bottom:12px;}
+  .price-card ul li .tick{color:var(--gold-soft); font-weight:800;}
+
+  /* testimonials */
+  .test-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .test-card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-md); padding:28px;}
+  .stars{color:var(--gold-soft); font-size:14px; margin-bottom:15px; letter-spacing:2px;}
+  .test-card p.quote{font-size:14.5px; color:#d6dae5; margin-bottom:20px;}
+  .test-person{display:flex; align-items:center; gap:12px;}
+  .avatar{width:40px; height:40px; border-radius:9px; background:linear-gradient(120deg,var(--gold),var(--blue)); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-weight:800; color:#07090d; font-family:'Archivo'; font-size:13px;}
+  .test-person b{font-size:13.5px; display:block;}
+  .test-person span{font-size:12px; color:var(--muted);}
+  .results-strip{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--r-md); overflow:hidden; margin-top:54px;}
+  .results-strip div{background:var(--surface); padding:24px; text-align:center;}
+  .results-strip b{display:block; font-family:'Archivo'; font-size:28px; font-weight:800; color:var(--gold-soft);}
+  .results-strip span{font-size:12.5px; color:var(--muted);}
+
+  /* FAQ */
+  .faq-list{max-width:780px; margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--line-soft); padding:22px 0;}
+  .faq-q{display:flex; justify-content:space-between; align-items:center; cursor:pointer; gap:20px;}
+  .faq-q .tnum{font-family:'Roboto Mono'; font-size:12px; color:var(--gold-soft); margin-right:14px;}
+  .faq-q h4{font-size:15.5px; font-weight:700; display:inline;}
+  .faq-q .plus{font-size:19px; color:var(--gold-soft); transition:transform .25s; flex-shrink:0;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .3s ease;}
+  .faq-a p{padding-top:14px; color:var(--muted); font-size:14.5px; max-width:660px; margin-left:34px;}
+  .faq-item.open .faq-a{max-height:200px;}
+
+  /* contact */
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px;}
+  .form-field{margin-bottom:18px;}
+  .form-field label{display:block; font-family:'Roboto Mono'; font-size:11.5px; color:var(--muted); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.06em;}
+  .form-field input, .form-field textarea, .form-field select{width:100%; background:var(--surface); border:1px solid var(--line); border-radius:var(--r-sm); padding:13px 14px; color:var(--text); font-family:'Manrope'; font-size:14.5px; transition:border-color .2s;}
+  .form-field input:focus, .form-field textarea:focus, .form-field select:focus{outline:none; border-color:var(--gold);}
+  .form-field textarea{resize:vertical; min-height:110px;}
+  .contact-info-card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-md); padding:30px;}
+  .contact-row{display:flex; gap:14px; align-items:flex-start; margin-bottom:22px;}
+  .contact-row:last-child{margin-bottom:0;}
+  .contact-row .ic{width:40px; height:40px; border-radius:var(--r-sm); background:rgba(227,179,65,0.08); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:16px;}
+  .contact-row b{display:block; font-size:14px; margin-bottom:3px;}
+  .contact-row span, .contact-row a{font-size:13.5px; color:var(--muted);}
+  .contact-row a:hover{color:var(--gold-soft);}
+
+  /* CTA band */
+  .cta-band{margin:0 24px; border-radius:24px; padding:64px 50px; text-align:center; background:linear-gradient(120deg, rgba(227,179,65,0.1), rgba(51,87,255,0.1)); border:1px solid var(--line); position:relative; overflow:hidden;}
+  .cta-band h2{font-size:clamp(26px,3.4vw,38px); margin-bottom:14px;}
+  .cta-band p{color:var(--muted); margin-bottom:30px; max-width:560px; margin-left:auto; margin-right:auto;}
+  .cta-band-ctas{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+
+  /* footer */
+  footer{border-top:1px solid var(--line-soft); padding:60px 24px 30px; position:relative; z-index:1;}
+  .foot-grid{max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:40px;}
+  .foot-grid h5{font-family:'Roboto Mono'; font-size:11.5px; text-transform:uppercase; letter-spacing:0.08em; color:var(--blue-soft); margin-bottom:18px;}
+  .foot-grid ul{list-style:none;}
+  .foot-grid ul li{margin-bottom:11px;}
+  .foot-grid ul li a{font-size:14px; color:var(--muted); cursor:pointer; transition:color .2s;}
+  .foot-grid ul li a:hover{color:var(--text);}
+  .foot-bottom{max-width:1200px; margin:0 auto; padding-top:24px; border-top:1px solid var(--line-soft); display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; font-size:12.5px; color:var(--muted); font-family:'Roboto Mono';}
+  .social-row{display:flex; gap:12px;}
+  .social-row a{width:34px; height:34px; border-radius:var(--r-sm); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-size:13px; transition:.2s;}
+  .social-row a:hover{border-color:var(--gold); color:var(--gold-soft);}
+
+  /* floating whatsapp */
+  .float-wa{position:fixed; bottom:26px; right:26px; z-index:500; width:58px; height:58px; border-radius:50%; background:linear-gradient(135deg, #25D366, #1aa64f); display:flex; align-items:center; justify-content:center; box-shadow:0 10px 30px rgba(37,211,102,0.4); cursor:pointer; transition:transform .2s;}
+  .float-wa:hover{transform:scale(1.08);}
+  .float-wa::before{content:""; position:absolute; inset:0; border-radius:50%; border:2px solid rgba(37,211,102,0.5); animation:wapulse 2s infinite;}
+  @keyframes wapulse{0%{transform:scale(1); opacity:0.8;} 100%{transform:scale(1.6); opacity:0;}}
+  .float-wa svg{width:28px; height:28px; position:relative; z-index:1;}
+
+  .badge-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;}
+  .mini-badge{font-family:'Roboto Mono'; font-size:11px; color:var(--muted); border:1px solid var(--line); padding:6px 12px; border-radius:999px;}
+
+  .page-hero{padding:64px 24px 50px; max-width:1200px; margin:0 auto; text-align:center;}
+  .page-hero h1{font-size:clamp(30px,4.2vw,50px); font-weight:900; margin-bottom:16px;}
+  .page-hero p{color:var(--muted); max-width:600px; margin:0 auto; font-size:16.5px;}
+
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
+
+  @media (max-width:980px){
+    .hero-bento{grid-template-columns:1fr; grid-template-rows:auto; padding-top:40px;}
+    .hero-main{grid-row:auto;}
+    .split{grid-template-columns:1fr;}
+    .grid-3, .grid-2, .grid-4, .steps, .pricing-grid, .test-grid, .results-strip, .port-grid, .stat-strip{grid-template-columns:repeat(2,1fr);}
+    .contact-grid{grid-template-columns:1fr;}
+    .about-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .price-card.feat{transform:none;}
+  }
+  @media (max-width:680px){
+    nav.links{display:none;}
+    .burger{display:flex;}
+    .nav-cta{display:none;}
+    .grid-3, .grid-2, .grid-4, .steps, .pricing-grid, .test-grid, .results-strip, .port-grid, .stat-strip{grid-template-columns:1fr;}
+    .cta-band{padding:44px 24px;}
+    .foot-grid{grid-template-columns:1fr;}
+    section{padding:64px 20px;}
+    .float-wa{width:52px; height:52px; bottom:18px; right:18px;}
+  }
+  nav.links.mobile-open{display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:var(--bg-2); border:1px solid var(--line); border-radius:14px; margin:10px 24px; padding:14px; gap:6px;}
+</style>
+</head>
+<body>
+
+<div class="ticker-bar">
+  <div class="ticker-track">
+    <span><b>AI Video Ads</b><i class="sep">/</i> TikTok <i class="sep">/</i> Instagram <i class="sep">/</i> Facebook <i class="sep">/</i> YouTube <i class="sep">/</i> <b>Free Consultation Available</b><i class="sep">/</i> 48hr Avg. Turnaround <i class="sep">/</i> 120+ Brands Served</span>
+    <span><b>AI Video Ads</b><i class="sep">/</i> TikTok <i class="sep">/</i> Instagram <i class="sep">/</i> Facebook <i class="sep">/</i> YouTube <i class="sep">/</i> <b>Free Consultation Available</b><i class="sep">/</i> 48hr Avg. Turnaround <i class="sep">/</i> 120+ Brands Served</span>
+  </div>
+</div>
+
+<header>
+  <div class="nav">
+    <div class="brand" onclick="goTo('home')">
+      <div class="mark"><span>PS</span></div>
+      <div>PROXIMA SOLUTION<span class="sub">AI Video Ads Studio</span></div>
+    </div>
+    <nav class="links" id="navLinks">
+      <a data-page="home" onclick="goTo('home')">Home</a>
+      <a data-page="about" onclick="goTo('about')">About</a>
+      <a data-page="services" onclick="goTo('services')">Services</a>
+      <a data-page="portfolio" onclick="goTo('portfolio')">Portfolio</a>
+      <a data-page="pricing" onclick="goTo('pricing')">Pricing</a>
+      <a data-page="testimonials" onclick="goTo('testimonials')">Testimonials</a>
+      <a data-page="faq" onclick="goTo('faq')">FAQ</a>
+      <a data-page="contact" onclick="goTo('contact')">Contact</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <div class="nav-cta" onclick="goTo('contact')">Free Consultation</div>
+      <button class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HOME ================= -->
+<main id="home" class="page active">
+
+  <section style="padding:0;">
+    <div class="hero-bento">
+      <div class="hero-main">
+        <div class="tc">Boost Your Brand With AI</div>
+        <h1>AI-Driven Video Ads That <span class="ac">Stop the Scroll</span> & Drive Sales</h1>
+        <p class="lead">We create high-quality AI-powered video ads designed to capture attention, increase engagement, and drive more sales for your business across social media and digital platforms.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" onclick="goTo('contact')">Request Free Consultation</a>
+          <a class="btn btn-outline" onclick="goTo('portfolio')">View Our Work</a>
+        </div>
+        <div class="stat-strip">
+          <div><b>300+</b><span>Ads Delivered</span></div>
+          <div><b>4.9/5</b><span>Client Rating</span></div>
+          <div><b>48hr</b><span>Avg. Turnaround</span></div>
+          <div><b>4x</b><span>Engagement Lift</span></div>
+        </div>
+      </div>
+
+      <div class="panel tc-panel">
+        <div class="tc-top"><span><span class="reddot"></span>REC · AI RENDER</span><span class="mono">4K</span></div>
+        <div class="tc-center">
+          <div class="tc-rings">
+            <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+            <div class="play"></div>
+          </div>
+        </div>
+        <div class="tc-readout" id="tcReadout">00:00:12:04</div>
+        <div class="tc-waveform" id="waveform"></div>
+        <div class="tc-bottom"><span class="pchip">TikTok</span><span class="pchip">Reels</span><span class="pchip">Shorts</span></div>
+      </div>
+
+      <div class="panel platform-panel">
+        <h4>Platform Performance</h4>
+        <div class="plat-row"><span>TikTok</span><span class="bar"><i style="width:92%"></i></span></div>
+        <div class="plat-row"><span>Instagram</span><span class="bar"><i style="width:85%"></i></span></div>
+        <div class="plat-row"><span>YouTube</span><span class="bar"><i style="width:78%"></i></span></div>
+        <div class="plat-row"><span>Facebook</span><span class="bar"><i style="width:71%"></i></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- value proposition -->
+  <section>
+    <div class="wrap split">
+      <div>
+        <div class="tc">Why Proxima Solution</div>
+        <h2 style="font-size:clamp(26px,3.2vw,38px); font-weight:800; margin-bottom:18px;">Video ads engineered to convert, not just look good</h2>
+        <p style="color:var(--muted); font-size:16px;">Most agencies sell you a pretty video. We build performance assets — AI-accelerated production combined with proven direct-response storytelling, so every ad is built to stop the scroll and move people to buy.</p>
+        <ul class="check-list">
+          <li><span class="tick">✓</span> AI-powered production cuts delivery time from weeks to days</li>
+          <li><span class="tick">✓</span> Platform-native formats for TikTok, Reels, Shorts & Feed</li>
+          <li><span class="tick">✓</span> Conversion-focused scripting, hooks and CTAs</li>
+          <li><span class="tick">✓</span> Unlimited revisions until your team is fully satisfied</li>
+        </ul>
+        <a class="btn btn-primary" style="margin-top:30px;" onclick="goTo('contact')">Request a Free Consultation</a>
+      </div>
+      <div class="timeline-cards">
+        <div class="tcard"><div class="tnum">01</div><div><h4>312% View-Through Rate</h4><p>Average increase across client AI video campaigns vs. static creative.</p></div></div>
+        <div class="tcard"><div class="tnum">02</div><div><h4>4x Engagement</h4><p>Higher engagement compared to traditional image-based social ads.</p></div></div>
+        <div class="tcard"><div class="tnum">03</div><div><h4>48-Hour Turnaround</h4><p>Average production time from brief to first-cut delivery.</p></div></div>
+        <div class="tcard"><div class="tnum">04</div><div><h4>120+ Brands Served</h4><p>From DTC startups to established e-commerce and SaaS companies.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- services preview -->
+  <section class="alt">
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="tc" style="justify-content:center;">What We Do</div>
+        <h2>Full-funnel video ad production, powered by AI</h2>
+        <p>From scroll-stopping hooks to polished commercial spots, every format your brand needs to win attention on social media.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card"><span class="tag">SERVICE / 01</span><h3>AI Video Ads</h3><p>Fast, scalable AI-generated ad creative built for TikTok, Reels and Shorts performance.</p></div>
+        <div class="card"><span class="tag">SERVICE / 02</span><h3>AI Product Ads</h3><p>Showcase your products with cinematic AI visuals that highlight features and drive purchase intent.</p></div>
+        <div class="card"><span class="tag">SERVICE / 03</span><h3>Commercial Video Ads</h3><p>Broadcast-quality commercial spots for YouTube, websites and paid media campaigns.</p></div>
+        <div class="card"><span class="tag">SERVICE / 04</span><h3>Product Demonstrations</h3><p>Clear, persuasive demo videos that explain how your product works and why it matters.</p></div>
+        <div class="card"><span class="tag">SERVICE / 05</span><h3>Promotional Videos</h3><p>Launch announcements, offers and campaigns designed to create urgency and drive action.</p></div>
+        <div class="card"><span class="tag">SERVICE / 06</span><h3>Brand Awareness Ads</h3><p>Story-driven social content that builds recognition, trust and recall for your brand.</p></div>
+      </div>
+      <div style="text-align:center; margin-top:44px;">
+        <a class="btn btn-outline" onclick="goTo('services')">Explore All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- process -->
+  <section>
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="tc" style="justify-content:center;">Our Process</div>
+        <h2>From brief to scroll-stopping ad in 4 steps</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="num">01</span><h4>Discovery Call</h4><p>We learn your brand, audience and goals on a free strategy consultation.</p></div>
+        <div class="step"><span class="num">02</span><h4>Script & Concept</h4><p>Our team builds a hook-first script and creative concept made to convert.</p></div>
+        <div class="step"><span class="num">03</span><h4>AI Production</h4><p>We produce your video using AI-accelerated tools and expert editing.</p></div>
+        <div class="step"><span class="num">04</span><h4>Review & Launch</h4><p>You review, request edits, and we deliver platform-ready files for launch.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- trust / success stories -->
+  <section class="alt">
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="tc" style="justify-content:center;">Client Success</div>
+        <h2>Brands that grew with Proxima Solution</h2>
+        <p>A snapshot of the results our AI-driven video ads have delivered for clients across industries.</p>
+      </div>
+      <div class="test-grid">
+        <div class="test-card"><div class="stars">★★★★★</div><p class="quote">Our TikTok ad views and conversions jumped within the first week of launching the new creative. The team understood our brand instantly.</p><div class="test-person"><div class="avatar">RM</div><div><b>Rachel M.</b><span>DTC Skincare Brand, Founder</span></div></div></div>
+        <div class="test-card"><div class="stars">★★★★★</div><p class="quote">The product demo videos explained our app better than our own sales deck. Sign-ups from paid social nearly tripled.</p><div class="test-person"><div class="avatar">JK</div><div><b>James K.</b><span>SaaS Startup, Co-founder</span></div></div></div>
+        <div class="test-card"><div class="stars">★★★★★</div><p class="quote">Fast turnaround, professional communication, and ads that actually performed. We doubled our ad budget with them in month two.</p><div class="test-person"><div class="avatar">AS</div><div><b>Amara S.</b><span>E-commerce, Marketing Lead</span></div></div></div>
+      </div>
+      <div class="results-strip">
+        <div><b>312%</b><span>View-through rate</span></div>
+        <div><b>4.1x</b><span>Engagement lift</span></div>
+        <div><b>2.8x</b><span>Conversion increase</span></div>
+        <div><b>120+</b><span>Brands served</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Ready to turn views into customers?</h2>
+      <p>Book a free strategy consultation and get a custom video ad plan for your brand — no obligation, just a clear path to growth.</p>
+      <div class="cta-band-ctas">
+        <a class="btn btn-primary" onclick="goTo('contact')">Request Free Consultation</a>
+        <a class="btn btn-outline" href="https://wa.me/16729000605" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <div style="height:90px;"></div>
+</main>
+
+<!-- ================= ABOUT ================= -->
+<main id="about" class="page">
+  <div class="page-hero">
+    <div class="tc" style="justify-content:center;">About Us</div>
+    <h1>We help brands win attention in a noisy feed</h1>
+    <p>Proxima Solution is a US-based AI video ad studio helping brands cut through the noise on TikTok, Instagram, Facebook and YouTube with high-performing, AI-powered creative.</p>
+  </div>
+
+  <section class="tight">
+    <div class="wrap about-grid">
+      <div class="panel tc-panel" style="aspect-ratio:5/4;">
+        <div class="tc-top"><span><span class="reddot"></span>OUR STUDIO</span><span class="mono">EST. 2024</span></div>
+        <div class="tc-center"><div class="tc-rings"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="play"></div></div></div>
+        <div class="tc-readout">PROXIMA</div>
+        <div class="tc-bottom"><span class="pchip">United States</span><span class="pchip">AI-Powered</span></div>
+      </div>
+      <div>
+        <h2 style="font-size:clamp(24px,3vw,32px); margin-bottom:16px; font-weight:800;">Our story</h2>
+        <p style="color:var(--muted); margin-bottom:18px;">Proxima Solution was founded on a simple belief: every business, regardless of size, deserves video ads that perform like the best brands in the world. We combine AI-accelerated production with proven advertising strategy to make premium video marketing fast, affordable and effective.</p>
+        <p style="color:var(--muted);">Today we work with founders, e-commerce brands, SaaS companies and local businesses across the United States to produce video ads that build awareness and drive measurable sales growth.</p>
+        <div class="badge-row">
+          <span class="mini-badge">US BASED</span>
+          <span class="mini-badge">AI-ACCELERATED</span>
+          <span class="mini-badge">PERFORMANCE-FOCUSED</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="tc" style="justify-content:center;">Mission & Values</div>
+        <h2>What drives our work</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card"><span class="tag">VALUE / 01</span><h3>Performance First</h3><p>Every video we make is judged by one standard: does it drive real business results.</p></div>
+        <div class="card"><span class="tag">VALUE / 02</span><h3>Speed Without Sacrifice</h3><p>AI lets us move fast — but never at the cost of quality, strategy or craft.</p></div>
+        <div class="card"><span class="tag">VALUE / 03</span><h3>Partnership Over Projects</h3><p>We treat every client relationship as a long-term growth partnership, not a one-off job.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="tc" style="justify-content:center;">Why Choose Us</div>
+        <h2>What makes Proxima Solution different</h2>
+      </div>
+      <div class="grid-4">
+        <div class="card"><span class="tag">01</span><h3>AI-Powered Speed</h3><p>Production timelines measured in days, not weeks.</p></div>
+        <div class="card"><span class="tag">02</span><h3>Conversion Focused</h3><p>Every script is built around proven direct-response frameworks.</p></div>
+        <div class="card"><span class="tag">03</span><h3>Premium Quality</h3><p>Cinematic visuals that match top global brands.</p></div>
+        <div class="card"><span class="tag">04</span><h3>Dedicated Support</h3><p>A real team, reachable by email, WhatsApp, Telegram and Signal.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Let's build your next high-performing video ad</h2>
+      <p>Tell us about your brand and goals — we'll put together a free consultation tailored to your business.</p>
+      <div class="cta-band-ctas"><a class="btn btn-primary" onclick="goTo('contact')">Get Started</a></div>
+    </div>
+  </div>
+  <div style="height:90px;"></div>
+</main>
+
+<!-- ================= SERVICES ================= -->
+<main id="services" class="page">
+  <div class="page-hero">
+    <div class="tc" style="justify-content:center;">Services</div>
+    <h1>Video ad production for every stage of your funnel</h1>
+    <p>AI-powered video creative built to capture attention, explain your product and convert viewers into customers — across every major social platform.</p>
+  </div>
+
+  <section class="tight">
+    <div class="wrap grid-3">
+      <div class="card"><span class="tag">01</span><h3>AI Video Ads</h3><p>Scroll-stopping, AI-generated ad creative optimized for TikTok, Instagram Reels and YouTube Shorts performance.</p></div>
+      <div class="card"><span class="tag">02</span><h3>AI Product Ads</h3><p>Cinematic AI product visuals and showcase videos that highlight features and build purchase desire.</p></div>
+      <div class="card"><span class="tag">03</span><h3>Commercial Video Ads</h3><p>Polished commercial spots for YouTube pre-roll, websites and broader paid media campaigns.</p></div>
+      <div class="card"><span class="tag">04</span><h3>Product Demonstration Videos</h3><p>Step-by-step demo content that clearly explains how your product or service works.</p></div>
+      <div class="card"><span class="tag">05</span><h3>Promotional Videos</h3><p>Launch, sale and offer videos designed to create urgency and drive immediate action.</p></div>
+      <div class="card"><span class="tag">06</span><h3>Brand Awareness Campaigns</h3><p>Story-led social video content that builds recognition, trust and recall over time.</p></div>
+      <div class="card"><span class="tag">07</span><h3>Social Media Ad Management</h3><p>Platform-optimized formats and specs for TikTok, Instagram, Facebook and YouTube ad placements.</p></div>
+      <div class="card"><span class="tag">08</span><h3>Ad Strategy & Scripting</h3><p>Hook-driven scripts and creative strategy grounded in direct-response advertising principles.</p></div>
+      <div class="card"><span class="tag">09</span><h3>Creative Refresh & Testing</h3><p>Ongoing new ad variations to keep your campaigns fresh and prevent audience fatigue.</p></div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="tc" style="justify-content:center;">Platforms We Cover</div>
+        <h2>Built for where your audience actually scrolls</h2>
+      </div>
+      <div class="grid-4">
+        <div class="card" style="text-align:center;"><h3>TikTok</h3><p>Native, fast-paced creative built for the For You Page.</p></div>
+        <div class="card" style="text-align:center;"><h3>Instagram</h3><p>Reels and Feed ads designed for high engagement.</p></div>
+        <div class="card" style="text-align:center;"><h3>Facebook</h3><p>Scroll-stopping creative for Feed and Marketplace placements.</p></div>
+        <div class="card" style="text-align:center;"><h3>YouTube</h3><p>Shorts and in-stream commercial video formats.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Not sure which service fits your brand?</h2>
+      <p>Book a free consultation and we'll recommend the right video ad strategy for your goals and budget.</p>
+      <div class="cta-band-ctas"><a class="btn btn-primary" onclick="goTo('contact')">Request Free Consultation</a></div>
+    </div>
+  </div>
+  <div style="height:90px;"></div>
+</main>
+
+<!-- ================= PORTFOLIO ================= -->
+<main id="portfolio" class="page">
+  <div class="page-hero">
+    <div class="tc" style="justify-content:center;">Portfolio</div>
+    <h1>A look at our recent AI video ad work</h1>
+    <p>A sample of the AI video ads, product demos and commercial spots we've produced for clients across industries.</p>
+  </div>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="portfolio-filter">
+        <div class="filter-chip active">All Work</div>
+        <div class="filter-chip">AI Video Ads</div>
+        <div class="filter-chip">Product Ads</div>
+        <div class="filter-chip">Commercial</div>
+        <div class="filter-chip">Brand Awareness</div>
+      </div>
+      <div class="port-grid">
+        <div class="port-item"><div class="pi-grid"></div><span class="pi-tag">TikTok</span><span class="pi-tc">00:28</span><div class="pi-play"><div class="tri"></div></div><div class="pi-foot"><b>Glow Skincare Launch</b><span>AI Product Ad · +218% CTR</span></div></div>
+        <div class="port-item"><div class="pi-grid"></div><span class="pi-tag">Instagram</span><span class="pi-tc">00:31</span><div class="pi-play"><div class="tri"></div></div><div class="pi-foot"><b>Urban Fit Apparel</b><span>Brand Awareness · +180% Reach</span></div></div>
+        <div class="port-item"><div class="pi-grid"></div><span class="pi-tag">YouTube</span><span class="pi-tc">00:45</span><div class="pi-play"><div class="tri"></div></div><div class="pi-foot"><b>Nimbus SaaS Demo</b><span>Product Demonstration · +96% Sign-ups</span></div></div>
+        <div class="port-item"><div class="pi-grid"></div><span class="pi-tag">Facebook</span><span class="pi-tc">00:24</span><div class="pi-play"><div class="tri"></div></div><div class="pi-foot"><b>Bright Home Goods</b><span>Commercial Ad · +142% ROAS</span></div></div>
+        <div class="port-item"><div class="pi-grid"></div><span class="pi-tag">TikTok</span><span class="pi-tc">00:19</span><div class="pi-play"><div class="tri"></div></div><div class="pi-foot"><b>Pulse Energy Drink</b><span>AI Video Ad · +312% Views</span></div></div>
+        <div class="port-item"><div class="pi-grid"></div><span class="pi-tag">Instagram</span><span class="pi-tc">00:33</span><div class="pi-play"><div class="tri"></div></div><div class="pi-foot"><b>Lumen Furniture Co.</b><span>Promotional Video · +89% Sales</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Want results like these for your brand?</h2>
+      <p>Let's discuss your goals on a free consultation and map out a video ad strategy that fits your business.</p>
+      <div class="cta-band-ctas"><a class="btn btn-primary" onclick="goTo('contact')">Request Free Consultation</a></div>
+    </div>
+  </div>
+  <div style="height:90px;"></div>
+</main>
+
+<!-- ================= PRICING ================= -->
+<main id="pricing" class="page">
+  <div class="page-hero">
+    <div class="tc" style="justify-content:center;">Pricing</div>
+    <h1>Simple, transparent pricing for every stage</h1>
+    <p>Choose a package that fits your brand, or request a custom quote tailored to your campaign goals.</p>
+  </div>
+
+  <section class="tight">
+    <div class="wrap pricing-grid">
+      <div class="price-card">
+        <h3>Starter</h3>
+        <p class="desc">For new brands testing video ads on social media.</p>
+        <div class="amount">$499 <span>/ project</span></div>
+        <ul>
+          <li><span class="tick">✓</span> 1 AI video ad (up to 30s)</li>
+          <li><span class="tick">✓</span> 1 platform format (TikTok or Reels)</li>
+          <li><span class="tick">✓</span> Script & hook writing</li>
+          <li><span class="tick">✓</span> 2 rounds of revisions</li>
+          <li><span class="tick">✓</span> 5-day delivery</li>
+        </ul>
+        <a class="btn btn-outline" onclick="goTo('contact')">Get Started</a>
+      </div>
+      <div class="price-card feat">
+        <div class="price-badge">Most Popular</div>
+        <h3>Growth</h3>
+        <p class="desc">For brands ready to scale across multiple platforms.</p>
+        <div class="amount">$1,199 <span>/ month</span></div>
+        <ul>
+          <li><span class="tick">✓</span> 4 AI video ads / month</li>
+          <li><span class="tick">✓</span> Multi-platform formats (TikTok, Reels, Shorts, Feed)</li>
+          <li><span class="tick">✓</span> Strategy & scripting included</li>
+          <li><span class="tick">✓</span> Unlimited revisions</li>
+          <li><span class="tick">✓</span> 48-hour priority turnaround</li>
+          <li><span class="tick">✓</span> Dedicated account manager</li>
+        </ul>
+        <a class="btn btn-primary" onclick="goTo('contact')">Get Started</a>
+      </div>
+      <div class="price-card">
+        <h3>Enterprise</h3>
+        <p class="desc">For established brands needing full-scale ad production.</p>
+        <div class="amount">Custom</div>
+        <ul>
+          <li><span class="tick">✓</span> Unlimited AI video ads</li>
+          <li><span class="tick">✓</span> Full commercial production</li>
+          <li><span class="tick">✓</span> Ongoing creative testing</li>
+          <li><span class="tick">✓</span> Custom reporting & strategy calls</li>
+          <li><span class="tick">✓</span> Dedicated production team</li>
+        </ul>
+        <a class="btn btn-outline" onclick="goTo('contact')">Request a Quote</a>
+      </div>
+    </div>
+    <p style="text-align:center; color:var(--muted); font-size:13.5px; margin-top:30px;">All packages include a free initial consultation. Need something different? <a onclick="goTo('contact')" style="color:var(--gold-soft); cursor:pointer;">Contact us</a> for a custom plan.</p>
+  </section>
+
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Not sure which plan is right for you?</h2>
+      <p>Book a free consultation and we'll recommend the best package for your budget and goals.</p>
+      <div class="cta-band-ctas"><a class="btn btn-primary" onclick="goTo('contact')">Request Free Consultation</a></div>
+    </div>
+  </div>
+  <div style="height:90px;"></div>
+</main>
+
+<!-- ================= TESTIMONIALS ================= -->
+<main id="testimonials" class="page">
+  <div class="page-hero">
+    <div class="tc" style="justify-content:center;">Testimonials</div>
+    <h1>Trusted by brands across the United States</h1>
+    <p>Real results and real feedback from the businesses we've helped grow with AI-powered video ads.</p>
+  </div>
+
+  <section class="tight">
+    <div class="wrap test-grid">
+      <div class="test-card"><div class="stars">★★★★★</div><p class="quote">Our TikTok ad views and conversions jumped within the first week of launching the new creative. The team understood our brand instantly.</p><div class="test-person"><div class="avatar">RM</div><div><b>Rachel M.</b><span>DTC Skincare Brand, Founder</span></div></div></div>
+      <div class="test-card"><div class="stars">★★★★★</div><p class="quote">The product demo videos explained our app better than our own sales deck. Sign-ups from paid social nearly tripled.</p><div class="test-person"><div class="avatar">JK</div><div><b>James K.</b><span>SaaS Startup, Co-founder</span></div></div></div>
+      <div class="test-card"><div class="stars">★★★★★</div><p class="quote">Fast turnaround, professional communication, and ads that actually performed. We doubled our ad budget with them in month two.</p><div class="test-person"><div class="avatar">AS</div><div><b>Amara S.</b><span>E-commerce, Marketing Lead</span></div></div></div>
+      <div class="test-card"><div class="stars">★★★★★</div><p class="quote">Proxima Solution gave us commercial-grade video ads at a fraction of the cost of a traditional production agency.</p><div class="test-person"><div class="avatar">DT</div><div><b>Daniel T.</b><span>Home Goods Brand, Owner</span></div></div></div>
+      <div class="test-card"><div class="stars">★★★★★</div><p class="quote">We went from zero video content to a full library of high-performing ads in under a month. Incredible speed and quality.</p><div class="test-person"><div class="avatar">LP</div><div><b>Lina P.</b><span>Fitness Apparel, CMO</span></div></div></div>
+      <div class="test-card"><div class="stars">★★★★★</div><p class="quote">Their strategy calls alone were worth it. They actually understand what makes people stop scrolling and buy.</p><div class="test-person"><div class="avatar">OC</div><div><b>Omar C.</b><span>Beverage Brand, Founder</span></div></div></div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap results-strip">
+      <div><b>312%</b><span>View-through rate</span></div>
+      <div><b>4.1x</b><span>Engagement lift</span></div>
+      <div><b>2.8x</b><span>Conversion increase</span></div>
+      <div><b>120+</b><span>Brands served</span></div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Become our next success story</h2>
+      <p>Book a free consultation today and let's create your brand's next high-performing video ad.</p>
+      <div class="cta-band-ctas"><a class="btn btn-primary" onclick="goTo('contact')">Request Free Consultation</a></div>
+    </div>
+  </div>
+  <div style="height:90px;"></div>
+</main>
+
+<!-- ================= FAQ ================= -->
+<main id="faq" class="page">
+  <div class="page-hero">
+    <div class="tc" style="justify-content:center;">FAQ</div>
+    <h1>Frequently asked questions</h1>
+    <p>Everything you need to know about working with Proxima Solution.</p>
+  </div>
+
+  <section class="tight">
+    <div class="wrap faq-list">
+      <div class="faq-item open">
+        <div class="faq-q" onclick="toggleFaq(this)"><div><span class="tnum">01</span><h4>What is an AI video ad and how is it different?</h4></div><span class="plus">+</span></div>
+        <div class="faq-a"><p>An AI video ad uses AI-accelerated production tools alongside expert strategy and editing to create high-quality video creative faster and more affordably than traditional production, without sacrificing quality.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><div><span class="tnum">02</span><h4>How long does it take to receive my video ads?</h4></div><span class="plus">+</span></div>
+        <div class="faq-a"><p>Most projects are delivered within 2 to 5 business days depending on package and complexity. Growth and Enterprise clients receive priority 48-hour turnaround.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><div><span class="tnum">03</span><h4>Which platforms do you create ads for?</h4></div><span class="plus">+</span></div>
+        <div class="faq-a"><p>We produce video ads optimized for TikTok, Instagram (Reels & Feed), Facebook, and YouTube (Shorts & in-stream), including the correct dimensions and specs for each.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><div><span class="tnum">04</span><h4>Do you offer revisions?</h4></div><span class="plus">+</span></div>
+        <div class="faq-a"><p>Yes. Starter plans include 2 rounds of revisions, while Growth and Enterprise plans include unlimited revisions until you're fully satisfied.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><div><span class="tnum">05</span><h4>Do I need my own footage or assets?</h4></div><span class="plus">+</span></div>
+        <div class="faq-a"><p>Not necessarily. We can produce fully AI-generated creative, or combine your existing brand assets and product footage with AI-enhanced production for a hybrid result.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><div><span class="tnum">06</span><h4>How do I get started?</h4></div><span class="plus">+</span></div>
+        <div class="faq-a"><p>Book a free consultation through our contact page or message us directly on WhatsApp, Telegram or Signal. We'll discuss your goals and recommend the right package.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Still have questions?</h2>
+      <p>Reach out directly — we typically respond within a few hours.</p>
+      <div class="cta-band-ctas"><a class="btn btn-primary" onclick="goTo('contact')">Contact Us</a></div>
+    </div>
+  </div>
+  <div style="height:90px;"></div>
+</main>
+
+<!-- ================= CONTACT ================= -->
+<main id="contact" class="page">
+  <div class="page-hero">
+    <div class="tc" style="justify-content:center;">Contact</div>
+    <h1>Request your free consultation</h1>
+    <p>Tell us about your brand and goals. We'll get back to you with a custom video ad strategy within 24 hours.</p>
+  </div>
+
+  <section class="tight">
+    <div class="wrap contact-grid">
+      <div>
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-field"><label for="cf-name">Full Name</label><input id="cf-name" type="text" placeholder="Your full name" required></div>
+          <div class="form-field"><label for="cf-email">Email Address</label><input id="cf-email" type="email" placeholder="you@company.com" required></div>
+          <div class="form-field"><label for="cf-company">Company / Brand Name</label><input id="cf-company" type="text" placeholder="Your business name"></div>
+          <div class="form-field">
+            <label for="cf-service">Service Interested In</label>
+            <select id="cf-service">
+              <option>AI Video Ads</option>
+              <option>AI Product Ads</option>
+              <option>Commercial Video Ads</option>
+              <option>Product Demonstration Video</option>
+              <option>Promotional Video</option>
+              <option>Brand Awareness Campaign</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-field"><label for="cf-msg">Tell us about your project</label><textarea id="cf-msg" placeholder="Share your goals, timeline and budget..." required></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Message</button>
+          <p id="formNote" style="font-size:13px; color:var(--muted); margin-top:14px; text-align:center;"></p>
+        </form>
+      </div>
+      <div>
+        <div class="contact-info-card">
+          <div class="contact-row"><div class="ic">📍</div><div><b>Location</b><span>United States</span></div></div>
+          <div class="contact-row"><div class="ic">✉️</div><div><b>Email</b><a href="mailto:donathus06@gmail.com">donathus06@gmail.com</a></div></div>
+          <div class="contact-row"><div class="ic">💬</div><div><b>WhatsApp</b><a href="https://wa.me/16729000605" target="_blank" rel="noopener">+1 (672) 900-0605</a></div></div>
+          <div class="contact-row"><div class="ic">📨</div><div><b>Telegram</b><span>@Dotunday0</span></div></div>
+          <div class="contact-row"><div class="ic">🔒</div><div><b>Signal</b><span>Dayo.84</span></div></div>
+        </div>
+        <div class="contact-info-card" style="margin-top:20px;">
+          <b style="display:block; margin-bottom:10px; font-size:15px;">Prefer to chat instantly?</b>
+          <p style="color:var(--muted); font-size:13.5px; margin-bottom:18px;">Message us directly on WhatsApp for the fastest response.</p>
+          <a class="btn btn-primary" style="width:100%; justify-content:center;" href="https://wa.me/16729000605" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div style="height:90px;"></div>
+</main>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="brand" style="margin-bottom:14px;">
+        <div class="mark"><span>PS</span></div>
+        <div>PROXIMA SOLUTION<span class="sub">AI Video Ads Studio</span></div>
+      </div>
+      <p style="color:var(--muted); font-size:14px; max-width:280px; margin-bottom:18px;">We create high-quality AI-powered video ads designed to capture attention, increase engagement, and drive more sales for your business.</p>
+      <div class="social-row">
+        <a href="https://wa.me/16729000605" target="_blank" rel="noopener" title="WhatsApp">W</a>
+        <a href="mailto:donathus06@gmail.com" title="Email">@</a>
+        <a href="#" title="Telegram">T</a>
+      </div>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <ul>
+        <li><a onclick="goTo('home')">Home</a></li>
+        <li><a onclick="goTo('about')">About</a></li>
+        <li><a onclick="goTo('portfolio')">Portfolio</a></li>
+        <li><a onclick="goTo('testimonials')">Testimonials</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Services</h5>
+      <ul>
+        <li><a onclick="goTo('services')">AI Video Ads</a></li>
+        <li><a onclick="goTo('services')">Commercial Ads</a></li>
+        <li><a onclick="goTo('services')">Product Demos</a></li>
+        <li><a onclick="goTo('pricing')">Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Get In Touch</h5>
+      <ul>
+        <li><a href="mailto:donathus06@gmail.com">donathus06@gmail.com</a></li>
+        <li><a href="https://wa.me/16729000605" target="_blank">+1 (672) 900-0605</a></li>
+        <li><a onclick="goTo('faq')">FAQ</a></li>
+        <li><a onclick="goTo('contact')">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 PROXIMA SOLUTION. ALL RIGHTS RESERVED.</span>
+    <span>UNITED STATES · SERVING BRANDS WORLDWIDE</span>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/16729000605" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="white"><path d="M16.01 3C9.38 3 4 8.38 4 15.01c0 2.39.7 4.62 1.92 6.5L4 29l7.67-1.9a11.93 11.93 0 0 0 4.34.83h.01c6.63 0 12.01-5.38 12.01-12.01C28.03 8.38 22.65 3 16.01 3Zm0 21.82c-1.5 0-2.95-.4-4.21-1.16l-.3-.18-4.55 1.13 1.22-4.44-.2-.31a9.78 9.78 0 0 1-1.5-5.85c0-5.43 4.42-9.85 9.86-9.85 5.43 0 9.85 4.42 9.85 9.85 0 5.44-4.42 9.81-9.85 9.81Zm5.42-7.36c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z"/></svg>
+</a>
+
+<script>
+function goTo(page){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(page).classList.add('active');
+  document.querySelectorAll('nav.links a').forEach(a=>a.classList.remove('active'));
+  const link = document.querySelector('nav.links a[data-page="'+page+'"]');
+  if(link) link.classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+  document.getElementById('navLinks').classList.remove('mobile-open');
+}
+goTo('home');
+
+function toggleMenu(){ document.getElementById('navLinks').classList.toggle('mobile-open'); }
+
+function toggleFaq(el){
+  const item = el.parentElement;
+  document.querySelectorAll('.faq-item').forEach(f=>{ if(f!==item) f.classList.remove('open'); });
+  item.classList.toggle('open');
+}
+
+function handleSubmit(e){
+  e.preventDefault();
+  const name = document.getElementById('cf-name').value;
+  const email = document.getElementById('cf-email').value;
+  const company = document.getElementById('cf-company').value;
+  const service = document.getElementById('cf-service').value;
+  const msg = document.getElementById('cf-msg').value;
+  const subject = encodeURIComponent('Free Consultation Request - ' + name);
+  const body = encodeURIComponent('Name: ' + name + '\\n' + 'Email: ' + email + '\\n' + 'Company: ' + company + '\\n' + 'Service: ' + service + '\\n\\nMessage:\\n' + msg);
+  window.location.href = 'mailto:donathus06@gmail.com?subject=' + subject + '&body=' + body;
+  document.getElementById('formNote').textContent = 'Opening your email client to send the message...';
+}
+
+(function(){
+  const wf = document.getElementById('waveform');
+  for(let i=0;i<26;i++){
+    const bar = document.createElement('span');
+    bar.style.animationDelay = (Math.random()*1.3)+'s';
+    bar.style.height = (16+Math.random()*22)+'px';
+    wf.appendChild(bar);
+  }
+})();
+
+(function(){
+  let sec = 12.04;
+  const el = document.getElementById('tcReadout');
+  setInterval(()=>{
+    sec += 0.04;
+    if(sec>59) sec = 0;
+    const s = Math.floor(sec);
+    const fr = Math.floor((sec-s)*25).toString().padStart(2,'0');
+    el.textContent = '00:00:' + s.toString().padStart(2,'0') + ':' + fr;
+  }, 80);
+})();
+
+document.querySelectorAll('.filter-chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));
+    chip.classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>
